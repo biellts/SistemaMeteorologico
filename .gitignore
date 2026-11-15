@@ -1,0 +1,18 @@
+# Maven e Spring Boot
+/target/
+
+# VS Code
+.vscode/
+
+# Outros editores
+.classpath
+.project
+.settings/
+.idea/
+*.iml
+
+# Arquivos temporarios
+*.log
+*.tmp
+.DS_Store
+Thumbs.db

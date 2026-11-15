@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1200">
+
+    <title>Sistema Meteorológico | REST e SOAP</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <!-- =====================================
+             CABEÇALHO
+        ====================================== -->
+
+        <header class="cabecalho">
+
+            <div class="logo">🌤️</div>
+
+            <div>
+                <h1>Sistema Meteorológico</h1>
+                <p>Consulta de clima com integração REST e SOAP</p>
+            </div>
+
+        </header>
+
+        <!-- =====================================
+             PESQUISA DE CIDADE
+        ====================================== -->
+
+        <section class="pesquisa">
+
+            <label for="cidade">
+                Digite o nome da cidade
+            </label>
+
+            <input
+                type="text"
+                id="cidade"
+                placeholder="Ex.: Montes Claros, Paris, Lisboa..."
+                autocomplete="off"
+                maxlength="120"
+            >
+
+            <button id="btnConsultar" type="button">
+                ☁ Consultar
+            </button>
+
+        </section>
+
+        <p id="mensagem" class="mensagem" role="status">
+            Digite uma cidade para consultar o clima.
+        </p>
+
+        <!-- =====================================
+             CLIMA ATUAL E INFORMAÇÕES SOAP
+        ====================================== -->
+
+        <section class="linha-principal">
+
+            <!-- CLIMA ATUAL - REST -->
+
+            <article class="card clima-atual">
+
+                <h2>
+                    ☁ Clima Atual
+                    <small>REST</small>
+                </h2>
+
+                <div class="clima-conteudo">
+
+                    <div class="temperatura-destaque">
+
+                        <div class="icone-clima" id="iconeClimaAtual">
+                            🌤️
+                        </div>
+
+                        <strong id="temperatura">
+                            -- °C
+                        </strong>
+
+                        <span id="nomeCidade">
+                            Nenhuma cidade selecionada
+                        </span>
+
+                    </div>
+
+                    <div class="detalhes-clima">
+
+                        <div>
+                            <span>🌡 Temperatura:</span>
+                            <strong id="temperaturaDetalhe">--</strong>
+                        </div>
+
+                        <div>
+                            <span>🌡 Sensação térmica:</span>
+                            <strong id="sensacao">--</strong>
+                        </div>
+
+                        <div>
+                            <span>💧 Umidade:</span>
+                            <strong id="umidade">--</strong>
+                        </div>
+
+                        <div>
+                            <span>💨 Vento:</span>
+                            <strong id="vento">--</strong>
+                        </div>
+
+                        <div>
+                            <span>◷ Atualização:</span>
+                            <strong id="atualizacao">--</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+            <!-- INFORMAÇÕES DO PAÍS - SOAP -->
+
+            <article class="card pais-soap">
+
+                <h2>
+                    🌐 Informações do País (SOAP)
+                </h2>
+
+                <div class="dados-pais">
+
+                    <div>
+                        <span>🌎 País:</span>
+                        <strong id="pais">--</strong>
+                    </div>
+
+                    <div>
+                        <span>⌘ Código ISO:</span>
+                        <strong id="codigoISO">--</strong>
+                    </div>
+
+                    <div>
+                        <span>🏛 Capital:</span>
+                        <strong id="capital">--</strong>
+                    </div>
+
+                </div>
+
+            </article>
+
+        </section>
+
+        <!-- =====================================
+             PREVISÃO PARA CINCO DIAS - REST
+        ====================================== -->
+
+        <section class="card previsao">
+
+            <h2>
+                ▣ Previsão para 5 dias
+                <small>REST</small>
+            </h2>
+
+            <div id="listaPrevisao" class="lista-previsao">
+
+                <p>
+                    Consulte uma cidade para visualizar
+                    a previsão dos próximos cinco dias.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- =====================================
+             PAINÉIS TÉCNICOS REST E SOAP
+        ====================================== -->
+
+        <section class="linha-tecnica">
+
+            <!-- RESPOSTA JSON - REST -->
+
+            <article class="card painel-codigo">
+
+                <h2>
+                    { } JSON recebido da API REST
+                </h2>
+
+                <div class="codigo-container">
+
+                    <pre id="jsonRest">Aguardando consulta REST...</pre>
+
+                </div>
+
+            </article>
+
+            <!-- RESPOSTA XML - SOAP -->
+
+            <article class="card painel-codigo">
+
+                <h2>
+                    &lt;/&gt; XML recebido do Web Service SOAP
+                </h2>
+
+                <div class="codigo-container">
+
+                    <pre id="xmlSoap">Aguardando consulta SOAP...</pre>
+
+                </div>
+
+            </article>
+
+        </section>
+
+        <!-- =====================================
+             RODAPÉ
+        ====================================== -->
+
+        <footer>
+
+            <span>
+                Sistema Meteorológico — Sistemas Distribuídos
+            </span>
+
+            <span>
+                Integração REST + SOAP
+            </span>
+
+        </footer>
+
+    </main>
+
+    <script src="/js/app.js"></script>
+
+</body>
+</html>

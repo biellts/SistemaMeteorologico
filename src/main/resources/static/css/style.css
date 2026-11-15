@@ -1,0 +1,512 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --azul-escuro: #10285e;
+    --azul-principal: #0968e8;
+    --azul-claro: #e6f1ff;
+    --borda: #c8def8;
+    --texto: #14234b;
+    --sombra: 0 8px 24px rgba(24, 76, 145, 0.17);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-width: 1200px;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Inter', Arial, sans-serif;
+    color: var(--texto);
+
+    background:
+        radial-gradient(
+            ellipse at 15% 25%,
+            rgba(255, 255, 255, 0.45),
+            transparent 35%
+        ),
+        radial-gradient(
+            ellipse at 85% 60%,
+            rgba(255, 255, 255, 0.3),
+            transparent 40%
+        ),
+        linear-gradient(
+            135deg,
+            #2b90ef 0%,
+            #69b6f6 42%,
+            #c2e0fc 100%
+        );
+
+    background-attachment: fixed;
+}
+
+/* ==========================================
+   CONTAINER PRINCIPAL
+   ========================================== */
+
+.container {
+    width: 95%;
+    max-width: 1700px;
+    margin: 0 auto;
+    padding: 20px 0 28px;
+}
+
+/* ==========================================
+   CABECALHO
+   ========================================== */
+
+.cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    color: white;
+    margin-bottom: 25px;
+    padding-left: 35px;
+}
+
+.logo {
+    font-size: 65px;
+    line-height: 1;
+    padding-right: 20px;
+    border-right: 2px solid rgba(255, 255, 255, 0.7);
+}
+
+.cabecalho h1 {
+    margin: 0 0 4px;
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    text-shadow: 0 2px 5px rgba(0, 55, 120, 0.18);
+}
+
+.cabecalho p {
+    margin: 0;
+    font-size: 19px;
+    color: #edf6ff;
+}
+
+/* ==========================================
+   BARRA DE PESQUISA
+   ========================================== */
+
+.pesquisa {
+    width: 70%;
+    margin: 0 auto 18px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 13px 16px;
+
+    background: rgba(255, 255, 255, 0.93);
+    border: 1px solid #d9ebff;
+    border-radius: 15px;
+    box-shadow: var(--sombra);
+}
+
+.pesquisa label {
+    white-space: nowrap;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.pesquisa input {
+    flex: 1;
+    min-width: 0;
+    height: 46px;
+    padding: 0 17px;
+    border: 1px solid #a9c9ec;
+    border-radius: 9px;
+    outline: none;
+
+    background: #f8fbff;
+    color: var(--texto);
+    font-family: inherit;
+    font-size: 16px;
+}
+
+.pesquisa input:focus {
+    border-color: var(--azul-principal);
+    box-shadow: 0 0 0 3px rgba(9, 104, 232, 0.12);
+}
+
+.pesquisa button {
+    height: 46px;
+    padding: 0 28px;
+    border: none;
+    border-radius: 9px;
+
+    background: linear-gradient(180deg, #168cff, #0753d5);
+    color: white;
+
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+    transition: filter 0.2s, transform 0.2s;
+}
+
+.pesquisa button:hover {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+}
+
+.pesquisa button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.mensagem {
+    min-height: 20px;
+    margin: 0 0 12px;
+    text-align: center;
+    color: #103771;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* ==========================================
+   CARDS GERAIS
+   ========================================== */
+
+.card {
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid rgba(190, 219, 250, 0.95);
+    border-radius: 17px;
+
+    box-shadow: var(--sombra);
+}
+
+.card h2 {
+    margin: 0;
+    padding: 13px 20px;
+
+    background: linear-gradient(
+        180deg,
+        #f9fcff,
+        #e4f0ff
+    );
+
+    border-bottom: 1px solid #d4e5f8;
+
+    color: #0d2862;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.card h2 small {
+    display: inline-block;
+    margin-left: 7px;
+    padding: 4px 8px;
+
+    border-radius: 6px;
+    background: #d5e8ff;
+
+    color: #1464ca;
+    font-size: 11px;
+    vertical-align: middle;
+}
+
+/* ==========================================
+   CLIMA ATUAL E PAIS SOAP
+   ========================================== */
+
+.linha-principal {
+    display: grid;
+    grid-template-columns: 1.65fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.clima-conteudo {
+    display: grid;
+    grid-template-columns: 46% 54%;
+    min-height: 220px;
+}
+
+.temperatura-destaque {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+    color: white;
+
+    background:
+        radial-gradient(
+            circle at 30% 20%,
+            rgba(255, 255, 255, 0.35),
+            transparent 40%
+        ),
+        linear-gradient(
+            135deg,
+            #238cea,
+            #70bbf5
+        );
+}
+
+.icone-clima {
+    font-size: 59px;
+    margin-bottom: 4px;
+}
+
+.temperatura-destaque strong {
+    font-size: 57px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    text-shadow: 0 3px 8px rgba(0, 64, 140, 0.23);
+}
+
+.temperatura-destaque span {
+    margin-top: 7px;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.detalhes-clima {
+    padding: 14px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.detalhes-clima > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+    padding: 12px 0;
+    border-bottom: 1px solid #d6e4f3;
+
+    font-size: 14px;
+}
+
+.detalhes-clima > div:last-child {
+    border-bottom: none;
+}
+
+.detalhes-clima span {
+    font-weight: 600;
+}
+
+.detalhes-clima strong {
+    color: #0d327b;
+    font-weight: 800;
+    text-align: right;
+}
+
+/* ==========================================
+   INFORMACOES DO PAIS - SOAP
+   ========================================== */
+
+.dados-pais {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 14px;
+    min-height: 220px;
+    padding: 20px 22px;
+}
+
+.dados-pais > div {
+    display: grid;
+    grid-template-columns: 52% 48%;
+    align-items: center;
+    gap: 10px;
+}
+
+.dados-pais span {
+    padding: 15px 12px;
+    background: #eef5ff;
+    border-radius: 9px;
+
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.dados-pais strong {
+    padding-left: 14px;
+    font-size: 17px;
+    color: #11275e;
+}
+
+/* ==========================================
+   PREVISAO PARA 5 DIAS
+   ========================================== */
+
+.previsao {
+    margin-bottom: 16px;
+}
+
+.lista-previsao {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 15px;
+    padding: 16px;
+    min-height: 185px;
+}
+
+.dia-card {
+    border: 1px solid #b8d7f8;
+    border-radius: 11px;
+    overflow: hidden;
+
+    background: linear-gradient(
+        180deg,
+        #f3f9ff,
+        #ffffff
+    );
+
+    box-shadow: 0 3px 8px rgba(29, 93, 161, 0.07);
+}
+
+.dia-card h3 {
+    margin: 0;
+    padding: 11px 10px;
+
+    background: #d8ebff;
+    color: #102b65;
+
+    text-align: center;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.dia-conteudo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 11px;
+}
+
+.dia-icone {
+    flex: 0 0 63px;
+    font-size: 42px;
+    text-align: center;
+}
+
+.dia-detalhes {
+    min-width: 0;
+    flex: 1;
+    border-left: 1px solid #d2e4f8;
+    padding-left: 11px;
+}
+
+.dia-detalhes p {
+    margin: 6px 0;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.dia-detalhes strong {
+    color: #10275e;
+}
+
+.maxima {
+    color: #d94a41;
+}
+
+.minima {
+    color: #1376d9;
+}
+
+.dia-condicao {
+    margin: 0 10px 14px;
+    text-align: center;
+    color: #15396e;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* ==========================================
+   PAINEIS JSON REST E XML SOAP
+   ========================================== */
+
+.linha-tecnica {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.painel-codigo h2 {
+    font-size: 18px;
+}
+
+.codigo-container {
+    margin: 0;
+    padding: 0;
+    background: #fafcff;
+}
+
+.codigo-container pre {
+    margin: 0;
+    padding: 20px;
+
+    height: 230px;
+    overflow: auto;
+
+    color: #14315c;
+    background: #f9fcff;
+
+    font-family: Consolas, 'Courier New', monospace;
+    font-size: 12px;
+    line-height: 1.65;
+
+    white-space: pre;
+    tab-size: 2;
+}
+
+/* ==========================================
+   RODAPE
+   ========================================== */
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+
+    margin-top: 18px;
+    padding: 15px 5px;
+
+    color: #174276;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+footer span {
+    color: #0a55a8;
+}
+
+/* ==========================================
+   AJUSTES DESKTOP
+   ========================================== */
+
+@media (min-width: 1600px) {
+
+    .container {
+        max-width: 1750px;
+    }
+
+    .clima-conteudo,
+    .dados-pais {
+        min-height: 240px;
+    }
+
+    .lista-previsao {
+        min-height: 205px;
+    }
+
+    .codigo-container pre {
+        height: 260px;
+    }
+}
